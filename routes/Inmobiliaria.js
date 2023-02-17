@@ -1,4 +1,7 @@
-const { Router } = require("express");
 const express = require("express");
+const router = express.Router();
+const { propiedades } = require("../controllers/Inmobiliaria");
 
-module.exports = Router;
+router.get("/propiedades", propiedades);
+
+module.exports = router;
