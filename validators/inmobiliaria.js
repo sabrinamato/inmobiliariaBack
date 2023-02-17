@@ -1,12 +1,6 @@
 const { check } = require("express-validator");
 
 exports.inmuebleValidator = [
-  check("id")
-    .not()
-    .isEmpty()
-    .withMessage("El campo id debe ser ingresado")
-    .isNumeric()
-    .withMessage("El campo id debe ser numerico"),
   check("nombre")
     .not()
     .isEmpty()
