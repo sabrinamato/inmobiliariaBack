@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const inmobiliaria = require("./routes/Inmobiliaria");
-const users = require("./routes/users");
+const users = require("./routes/users"); 
 
 const app = express();
 
