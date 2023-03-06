@@ -113,3 +113,28 @@ exports.modify = (req, res) => {
         });
     });
 };
+
+exports.filtrarPropiedades = (req, res) => {
+  let consulta = new Object();
+  if (req.query.operacion != null) {
+    consulta.operacion = req.query.operacion;
+  }
+  if (req.query.departamento != null) {
+    consulta.departamento = req.query.departamento;
+  }
+  if (req.query.tipo_inmueble != null) {
+    consulta.tipo_inmueble = req.query.tipo_inmueble;
+  }
+  if (req.query.dormitorios != null) {
+    consulta.dormitorios = req.query.dormitorios;
+  }
+
+  knex("propiedades")
+    .where(consulta)
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((error) => {
+      res.status(400).json({ error: error.message });
+    });
+};
