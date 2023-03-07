@@ -115,9 +115,13 @@ exports.modify = (req, res) => {
 };
 
 exports.filtrarPropiedades = (req, res) => {
-  let consulta = new Object();
+  let consulta = new Object(); //Objeto vacio para almacenar los parametros de cunsulta
   if (req.query.operacion != null) {
-    consulta.operacion = req.query.operacion;
+    if (req.query.operacion === "Alquiler y Venta") {
+      consulta.operacion = ["Alquila", "Venta"];
+    } else {
+      consulta.operacion = req.query.operacion;
+    }
   }
   if (req.query.departamento != null) {
     consulta.departamento = req.query.departamento;
@@ -128,6 +132,7 @@ exports.filtrarPropiedades = (req, res) => {
   if (req.query.dormitorios != null) {
     consulta.dormitorios = req.query.dormitorios;
   }
+  //Si los valores no son null se añaden al objeto consulta
 
   knex("propiedades")
     .where(consulta)
