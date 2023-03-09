@@ -14,7 +14,7 @@ const { verifyToken } = require("../validators/verifyToken");
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./Images");
+    cb(null, "../inmobiliariaFront/proyecto-final/public/Images");
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname + ".jpg");
