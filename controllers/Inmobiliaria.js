@@ -143,3 +143,11 @@ exports.filtrarPropiedades = (req, res) => {
       res.status(400).json({ error: error.message });
     });
 };
+
+exports.addFoto = (req, res) => {
+  try {
+    res.send("Imagen subida correctamente");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
