@@ -22,6 +22,7 @@ exports.addProp = (req, res) => {
     metros_terreno,
     metros_edificio,
     descripcion,
+    foto,
   } = req.body;
   knex("propiedades")
     .insert({
@@ -35,6 +36,7 @@ exports.addProp = (req, res) => {
       metros_terreno: metros_terreno,
       metros_edificio: metros_edificio,
       descripcion: descripcion,
+      foto: foto,
     })
     .then(() => {
       knex("propiedades")
@@ -117,9 +119,8 @@ exports.modify = (req, res) => {
 exports.filtrarPropiedades = (req, res) => {
   let consulta = new Object(); //Objeto vacio para almacenar los parametros de cunsulta
   if (req.query.operacion != null) {
-    if (req.query.operacion === "Alquiler y Venta") {
-      consulta.operacion = ["Alquila", "Venta"];
-    } else {
+    console.log(req.query.operacion);
+    if (req.query.operacion !== "alquilerVenta") {
       consulta.operacion = req.query.operacion;
     }
   }
