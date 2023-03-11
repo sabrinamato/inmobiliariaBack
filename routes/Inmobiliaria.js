@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     cb(null, "../inmobiliariaFront/proyecto-final/public/Images");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname + ".jpg");
+    cb(null, file.originalname);
   },
 });
 const upload = multer({ storage: storage });
@@ -25,7 +25,7 @@ const upload = multer({ storage: storage });
 router.get("/propiedades", propiedades);
 router.post("/propiedades/add", addProp);
 router.delete("/propiedades/delete/:id", deleteProp);
-router.put("/propiedades/editar/:id", modify);
+router.patch("/propiedades/editar/:id", modify);
 router.get("/propiedades/buscar", filtrarPropiedades);
 router.post("/propiedades/add/foto", upload.single("img"), addFoto);
 module.exports = router;

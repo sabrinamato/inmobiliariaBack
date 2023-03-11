@@ -15,6 +15,7 @@ app.use(cookieParser());
 
 app.use("/api", inmobiliaria);
 app.use("/auth", users);
+// app.use("/Images/", express.static("./Images"));
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
