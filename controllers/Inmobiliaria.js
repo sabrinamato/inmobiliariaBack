@@ -74,7 +74,8 @@ exports.deleteProp = (req, res) => {
 };
 
 exports.modify = (req, res) => {
-  const id = req.params.id;
+  const id = Number(req.params.id);
+  console.log(id);
   const {
     operacion,
     tipo_inmueble,
@@ -94,11 +95,11 @@ exports.modify = (req, res) => {
       tipo_inmueble: tipo_inmueble,
       departamento: departamento,
       barrio: barrio,
-      precio: precio,
-      dormitorios: dormitorios,
-      baños: baños,
-      metros_terreno: metros_terreno,
-      metros_edificio: metros_edificio,
+      precio: Number(precio),
+      dormitorios: Number(dormitorios),
+      baños: Number(baños),
+      metros_terreno: Number(metros_terreno),
+      metros_edificio: Number(metros_edificio),
       descripcion: descripcion,
     })
     .then(() => {
