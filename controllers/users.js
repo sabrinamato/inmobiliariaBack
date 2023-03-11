@@ -1,7 +1,7 @@
 const knex = require("../config/knex");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const TOKEN_SECRET = "ClaveToken";
+const { TOKEN_SECRET } = require("../validators/verifyToken");
 
 exports.registerUser = async (req, res) => {
   const salt = await bcrypt.genSalt(10);
@@ -17,7 +17,7 @@ exports.registerUser = async (req, res) => {
       res.status(200).json({ success: true, newUser: newUser });
     })
     .catch((error) => {
-      res.status(400).json({ error: message.error });
+      // res.status(400).json({ error: error.message });
     });
 };
 
